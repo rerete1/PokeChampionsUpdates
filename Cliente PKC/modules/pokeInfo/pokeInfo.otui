@@ -1,0 +1,103 @@
+MiniWindow
+  id: PokeWindow
+  !text: tr('Poke Info')
+  height: 175
+  &save: true
+
+  MiniWindowContents
+    Creature
+      id: pokePortrait
+      size: 64 64
+      anchors.top: parent.top
+      anchors.left: parent.left
+      margin-top: 5
+      margin-left: 5
+      fixed-creature-size: true
+
+    GameLabel
+      id: pokeName
+      font: verdana-11px-monochrome
+      text-align: center
+      anchors.top: parent.top
+      anchors.left: pokePortrait.right
+      anchors.right: parent.right
+      margin-top: 14
+      !text: tr('Pokemon Name')
+
+    ProgressBar
+      id: pokeHealth
+      background-color: #ff4444
+      anchors.top: pokeName.bottom
+      anchors.left: pokePortrait.right
+      anchors.right: parent.right
+      margin: 5
+
+    Button
+      id: pokeRun
+      size: 80 20
+      !text: tr('Run')
+      anchors.top: pokePortrait.bottom
+      anchors.left: parent.left
+      margin-top: 5
+      margin-left: 5
+      @onClick: g_game.talk("!pokeInfo run")
+
+    Button
+      id: pokeHeal
+      size: 80 20
+      !text: tr('Heal')
+      anchors.top: pokeRun.bottom
+      anchors.left: parent.left
+      margin-top: 5
+      margin-left: 5
+      @onClick: g_game.talk("!pokeInfo heal")
+
+    Button
+      id: pokeCall
+      size: 80 20
+      !text: tr('Call')
+      anchors.top: pokeHeal.bottom
+      anchors.left: parent.left
+      margin-top: 5
+      margin-left: 5
+      @onClick: g_game.talk("!pokeInfo call")
+
+    Button
+      id: pokeUp
+      size: 30 20
+      !text: tr('U')
+      anchors.top: pokePortrait.bottom
+      anchors.left: pokeRun.right
+      margin-top: 5
+      margin-left: 36
+      @onClick: g_game.talk("t1")
+
+    Button
+      id: pokeDown
+      size: 30 20
+      !text: tr('D')
+      anchors.top: pokeUp.bottom
+      anchors.left: pokeCall.right
+      margin-top: 30
+      margin-left: 36
+      @onClick: g_game.talk("t3")
+
+    Button
+      id: pokeLeft
+      size: 30 20
+      !text: tr('L')
+      anchors.top: pokeUp.bottom
+      anchors.left: pokeHeal.right
+      margin-top: 5
+      margin-left: 7
+      @onClick: g_game.talk("t4")
+
+    Button
+      id: pokeLeft
+      size: 30 20
+      !text: tr('R')
+      anchors.top: pokeUp.bottom
+      anchors.left: pokeLeft.right
+      margin-top: 5
+      margin-left: 30
+      @onClick: g_game.talk("t2")

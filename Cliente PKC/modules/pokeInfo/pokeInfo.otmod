@@ -1,0 +1,17 @@
+Module
+  name: Pokemon Info
+  description: [MOD] Pokemon Info System
+  author: Tony Araujo (OrochiElf)
+  website: www.facebook.com/tony.araujjo
+
+  autoload: true
+  autoload-priority: 1000
+
+  scripts:
+    - pokeInfo.lua
+
+  dependencies:
+    - game_interface
+
+  @onLoad: init()
+  @onUnload: terminate()
